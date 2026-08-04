@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Профориентационный тест для определения подходящего IT-направления"
+    >
+
+    <title>IT Career Test — Профориентационный тест</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- HEADER -->
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                
+            </div>
+
+            <div class="brand-text">
+                IT Тест
+                <span>для будущих создателей</span>
+            </div>
+
+        </div>
+
+        <div class="status-pill" id="statusPill">
+            24 вопроса ~7 минут
+        </div>
+
+    </header>
+
+
+    <div class="layout">
+
+        <!-- MAIN CONTENT -->
+        <main class="main-card">
+
+            <!-- ============================ -->
+            <!-- START SCREEN                  -->
+            <!-- ============================ -->
+
+            <section
+                class="screen active"
+                id="startScreen"
+            >
+
+                <div class="hero">
+
+                    <div class="hero-inner">
+
+                        <div class="eyebrow">
+                            Профориентация в IT
+                        </div>
+
+                        <h1>
+                            Найди направление,
+                            которое подходит
+                            именно тебе
+                        </h1>
+
+                        <p class="lead">
+                            Это не экзамен и здесь нет правильных
+                            или неправильных ответов.
+                            Тест помогает понять, что тебе ближе:
+                            разработка, Frontend, GameDev, дизайн,
+                            цифровой рисунок или работа
+                            с искусственным интеллектом.
+                        </p>
+
+
+                        <div class="profile-form">
+
+                            <div class="field">
+
+                                <label for="studentName">
+                                    Фамилия и Имя
+                                </label>
+
+                                <input
+                                    id="studentName"
+                                    type="text"
+                                    placeholder="Например, Петрова Маша"
+                                    autocomplete="name"
+                                >
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="studentAge">
+                                    Возраст
+                                </label>
+
+                                <input
+                                    id="studentAge"
+                                    type="number"
+                                    min="8"
+                                    max="20"
+                                    placeholder="12"
+                                >
+
+                            </div>
+
+                            <!-- НОВОЕ ПОЛЕ ДЛЯ EMAIL -->
+                            <div class="field">
+
+                                <label for="studentEmail">
+                                    Email для результатов
+                                </label>
+
+                                <input
+                                    id="studentEmail"
+                                    type="email"
+                                    placeholder="Ваш email"
+                                    autocomplete="email"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="primary-btn wide-btn"
+                            id="startBtn"
+                        >
+                            Начать тест
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section
+                class="screen"
+                id="quizScreen"
+            >
+
+                <!-- PROGRESS -->
+
+                <div class="progress-wrap">
+
+                    <div class="progress-row">
+
+                        <span id="progressText">
+                            Вопрос 1 из 24
+                        </span>
+
+                        <span id="progressPercent">
+                            4%
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-track">
+
+                        <div
+                            class="progress-bar"
+                            id="progressBar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION -->
+
+                <div id="questionHost"></div>
+
+
+                <!-- NAVIGATION -->
+
+                <div class="navigation">
+
+                    <button
+                        class="ghost-btn"
+                        id="backBtn"
+                    >
+                        Назад
+                    </button>
+
+
+                    <button
+                        class="primary-btn"
+                        id="nextBtn"
+                    >
+                        Дальше
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ============================ -->
+            <!-- RESULTS SCREEN               -->
+            <!-- ============================ -->
+
+            <section
+                class="screen"
+                id="resultsScreen"
+            >
+
+                <div class="results-header">
+
+                    <div class="eyebrow">
+                        Профиль готов
+                    </div>
+
+                    <h2 id="resultsTitle">
+                        Направления
+                    </h2>
+
+                    <p id="resultsSubtitle">
+                        Результат основан на ответах
+                        и показывает направления,
+                        которые могут подойти тебе лучше всего.
+                    </p>
+
+                </div>
+
+
+                <!-- RESULTS -->
+
+                <div
+                    class="result-grid"
+                    id="resultGrid"
+                ></div>
+
+
+                <!-- WINNER -->
+
+                <div
+                    class="winner"
+                    id="winnerBlock"
+                ></div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="result-actions">
+
+                    <button
+                        class="primary-btn"
+                        id="restartBtn"
+                    >
+                        Пройти заново
+                    </button>
+
+
+                    <button
+                        class="ghost-btn"
+                        id="printBtn"
+                    >
+                        Сохранить / распечатать результат
+                    </button>
+
+                    <!-- НОВАЯ КНОПКА ОТПРАВКИ НА EMAIL -->
+                    <button
+                        class="ghost-btn"
+                        id="sendEmailBtn"
+                        style="border-color: #39d98a; color: #39d98a;"
+                    >
+                        📧 Отправить на email
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- ============================ -->
+        <!-- SIDE PROFILE                  -->
+        <!-- ============================ -->
+
+        <aside
+            class="side-card"
+            id="profilePanel"
+        >
+
+            <div class="side-title">
+                Профиль интересов
+            </div>
+
+            <div class="side-subtitle">
+                Эти показатели меняются по мере прохождения.
+                Они показывают общие склонности,
+                а не финальный результат.
+            </div>
+
+
+            <div
+                class="interest-list"
+                id="interestList"
+            ></div>
+
+
+            <div class="legend">
+
+                <div class="legend-row">
+[04.08.2026 17:58] Марго: 
+
+                    <span
+                        class="legend-dot"
+                        style="background:#07a2e2"
+                    ></span>
+
+                    профиль развивается
+                    по мере ответов
+
+                </div>
+
+
+                <div class="legend-row">
+
+                    <span
+                        class="legend-dot"
+                        style="background:#39d98a"
+                    ></span>
+
+                    итоговый рейтинг
+                    рассчитывается отдельно
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</div>
+
+
+<!-- SCORE ANIMATION -->
+
+<div
+    class="score-toast"
+    id="scoreToast"
+></div>
+
+<!-- ПОДКЛЮЧАЕМ EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- ПОДКЛЮЧАЕМ ОСНОВНОЙ СКРИПТ -->
+<script src="script.js"></script>
+
+</body>
+</html>
