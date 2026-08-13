@@ -5,7 +5,7 @@
 const directions = {
 
     dev: {
-        name: "Разработка",
+        name: "Программирование на Python",
         icon: "",
         color: "#4b7bec",
 
@@ -18,7 +18,7 @@ const directions = {
 
 
     frontend: {
-        name: "Frontend",
+        name: "Web - разработка",
         icon: "",
         color: "#00c896",
 
@@ -30,21 +30,9 @@ const directions = {
     },
 
 
-    gamedev: {
-        name: "Game Development",
-        icon: "",
-        color: "#ff6b35",
-
-        description:
-            "Тебя может увлекать сочетание логики, творчества и игровых механик — когда нужно создать целый мир и правила внутри него.",
-
-        starter:
-            "простую 2D-игру, интерактивный квест или проект с собственным персонажем и игровыми механиками."
-    },
-
 
     design: {
-        name: "Дизайн",
+        name: "UX/UI дизайн",
         icon: "",
         color: "#ff4fa2",
 
@@ -57,7 +45,7 @@ const directions = {
 
 
     digitalArt: {
-        name: "Цифровой рисунок",
+        name: "Цифровое рисование",
         icon: "",
         color: "#ff9f43",
 
@@ -70,7 +58,7 @@ const directions = {
 
 
     aiUser: {
-        name: "AI User",
+        name: "Нейросети и AI инструменты",
         icon: "",
         color: "#8e44ad",
 
@@ -80,19 +68,6 @@ const directions = {
         starter:
             "собрать личный AI-workflow для учёбы или творчества и сравнить разные способы постановки задач нейросети."
     },
-
-
-    aiEngineer: {
-        name: "Создание нейросетей",
-        icon: "",
-        color: "#6c5ce7",
-
-        description:
-            "Тебя может заинтересовать, как устроен искусственный интеллект внутри: данные, алгоритмы, обучение моделей и эксперименты.",
-
-        starter:
-            "проект по анализу данных, простую модель машинного обучения или исследование того, как модель учится распознавать объекты."
-    }
 
 };
 
@@ -107,15 +82,12 @@ const profileOrder = [
 
     "frontend",
 
-    "gamedev",
 
     "design",
 
     "digitalArt",
 
-    "aiUser",
-
-    "aiEngineer"
+    "aiUser"
 
 ];
 
@@ -145,7 +117,7 @@ const questions = [
 
                 scores: {
                     dev: 3,
-                    aiEngineer: 2
+                    frontend: 2
                 },
 
                 vote:
@@ -173,12 +145,12 @@ const questions = [
                     "Играть в игры и придумывать свои уровни",
 
                 scores: {
-                    gamedev: 4,
+                    aiUser: 4,
                     design: 1
                 },
 
                 vote:
-                    "+1 к GameDev"
+                    "+1 к Дизайну"
             },
 
 
@@ -203,7 +175,7 @@ const questions = [
 
                 scores: {
                     aiUser: 4,
-                    aiEngineer: 1
+                    dev: 1
                 },
 
                 vote:
@@ -230,7 +202,7 @@ const questions = [
 
                 scores: {
                     dev: 3,
-                    aiEngineer: 2
+                    aiUser: 2
                 },
 
                 vote:
@@ -243,9 +215,9 @@ const questions = [
                     "Сразу начну экспериментировать",
 
                 scores: {
-                    gamedev: 2,
+                    design: 2,
                     aiUser: 2,
-                    aiEngineer: 2
+                    dev: 2
                 },
 
                 vote:
@@ -273,13 +245,13 @@ const questions = [
                     "Буду искать необычное решение",
 
                 scores: {
-                    gamedev: 2,
+                    dev: 2,
                     aiUser: 2,
                     frontend: 1
                 },
 
                 vote:
-                    "+1 к GameDev"
+                    "+1 к Dev"
             }
 
         ]
@@ -302,7 +274,7 @@ const questions = [
 
                 scores: {
                     dev: 4,
-                    aiEngineer: 2
+                    aiUser: 2
                 },
 
                 vote:
@@ -330,7 +302,7 @@ const questions = [
                     "Когда получилось интересно играть",
 
                 scores: {
-                    gamedev: 4,
+                    dev: 4,
                     frontend: 1
                 },
 
@@ -345,7 +317,7 @@ const questions = [
 
                 scores: {
                     aiUser: 2,
-                    aiEngineer: 3,
+                    frontend: 3,
                     dev: 1
                 },
 
@@ -373,7 +345,7 @@ const questions = [
 
                 scores: {
                     dev: 2,
-                    aiEngineer: 4
+                    aiUser: 4
                 },
 
                 vote:
@@ -415,8 +387,8 @@ const questions = [
 
                 scores: {
                     dev: 2,
-                    gamedev: 2,
-                    aiEngineer: 3
+                    frontend: 2,
+                    aiUser: 3
                 },
 
                 vote:
@@ -431,7 +403,7 @@ const questions = [
                 scores: {
                     frontend: 1,
                     aiUser: 2,
-                    gamedev: 1
+                    dev: 1
                 },
 
                 vote:
@@ -458,7 +430,7 @@ const questions = [
 
                 scores: {
                     dev: 3,
-                    gamedev: 4
+                    frontend: 4
                 },
 
                 vote:
@@ -473,7 +445,7 @@ const questions = [
                 scores: {
                     digitalArt: 4,
                     design: 2,
-                    gamedev: 1
+                    dev: 1
                 },
 
                 vote:
@@ -488,7 +460,7 @@ const questions = [
                 scores: {
                     design: 3,
                     frontend: 3,
-                    gamedev: 1
+                    dev: 1
                 },
 
                 vote:
@@ -501,7 +473,7 @@ const questions = [
                     "Придумать механику игры",
 
                 scores: {
-                    gamedev: 4,
+                    dev: 4,
                     design: 1
                 },
 
@@ -515,8 +487,8 @@ const questions = [
                     "Сделать ИИ противников",
 
                 scores: {
-                    aiEngineer: 4,
-                    gamedev: 3
+                    aiUser: 4,
+                    dev: 3
                 },
 
                 vote:
@@ -571,7 +543,7 @@ const questions = [
 
                 scores: {
                     frontend: 4,
-                    gamedev: 2,
+                    dev: 2,
                     design: 1
                 },
 
@@ -587,7 +559,7 @@ const questions = [
                 scores: {
                     design: 2,
                     aiUser: 1,
-                    gamedev: 1
+                    dev: 1
                 },
 
                 vote:
@@ -627,7 +599,7 @@ const questions = [
                     "Как работают нейросети",
 
                 scores: {
-                    aiEngineer: 4,
+                    dev: 4,
                     aiUser: 2
                 },
 
@@ -655,7 +627,7 @@ const questions = [
                     "Как создаются игры",
 
                 scores: {
-                    gamedev: 4,
+                    frontend: 4,
                     dev: 1
                 },
 
@@ -697,7 +669,7 @@ const questions = [
 
                 scores: {
                     digitalArt: 4,
-                    gamedev: 1
+                    dev: 1
                 },
 
                 vote:
@@ -724,7 +696,7 @@ const questions = [
                     "Научить компьютер чему-нибудь новому",
 
                 scores: {
-                    aiEngineer: 4,
+                    frontend: 4,
                     aiUser: 2
                 },
 
@@ -752,7 +724,7 @@ const questions = [
 
                 scores: {
                     dev: 3,
-                    aiEngineer: 3
+                    frontend: 3
                 },
 
                 vote:
@@ -794,7 +766,7 @@ const questions = [
                     "Исследование",
 
                 scores: {
-                    aiEngineer: 3,
+                    frontend: 3,
                     aiUser: 2,
                     dev: 1
                 },
@@ -824,7 +796,7 @@ const questions = [
                 scores: {
                     dev: 4,
                     frontend: 2,
-                    aiEngineer: 2
+                    frontend: 2
                 },
 
                 vote:
@@ -839,7 +811,7 @@ const questions = [
                 scores: {
                     gamedev: 2,
                     aiUser: 2,
-                    aiEngineer: 2
+                    frontend: 2
                 },
 
                 vote:
@@ -895,7 +867,7 @@ const questions = [
 
                 scores: {
                     dev: 4,
-                    aiEngineer: 2
+                    frontend: 2
                 },
 
                 vote:
@@ -950,7 +922,7 @@ const questions = [
 
                 scores: {
                     aiUser: 3,
-                    aiEngineer: 3
+                    frontend: 3
                 },
 
                 vote:
@@ -1020,7 +992,7 @@ const questions = [
                 scores: {
                     dev: 2,
                     gamedev: 2,
-                    aiEngineer: 2
+                    frontend: 2
                 },
 
                 vote:
@@ -1092,7 +1064,7 @@ const questions = [
 
                 scores: {
                     dev: 3,
-                    aiEngineer: 4
+                    frontend: 4
                 },
 
                 vote:
@@ -1172,7 +1144,7 @@ const questions = [
 
                 scores: {
                     aiUser: 3,
-                    aiEngineer: 3
+                    frontend: 3
                 },
 
                 vote:
@@ -1199,7 +1171,7 @@ const questions = [
 
                 scores: {
                     dev: 3,
-                    aiEngineer: 2
+                    frontend: 2
                 },
 
                 vote:
@@ -1242,7 +1214,7 @@ const questions = [
 
                 scores: {
                     aiUser: 3,
-                    aiEngineer: 3
+                    frontend: 3
                 },
 
                 vote:
@@ -1272,7 +1244,7 @@ const questions = [
             dev:
                 0.35,
 
-            aiEngineer:
+            frontend:
                 0.45,
 
             gamedev:
@@ -1351,7 +1323,7 @@ const questions = [
             digitalArt:
                 0.1,
 
-            aiEngineer:
+            frontend:
                 0.05
 
         },
@@ -1383,7 +1355,7 @@ const questions = [
             frontend:
                 0.18,
 
-            aiEngineer:
+            frontend:
                 0.25,
 
             gamedev:
@@ -1450,7 +1422,7 @@ const questions = [
             aiUser:
                 0.6,
 
-            aiEngineer:
+            frontend:
                 0.25,
 
             design:
@@ -1485,7 +1457,7 @@ const questions = [
 
         scoreMap: {
 
-            aiEngineer:
+            frontend:
                 0.65,
 
             dev:
@@ -1526,7 +1498,7 @@ const questions = [
             frontend:
                 0.22,
 
-            aiEngineer:
+            frontend:
                 0.28,
 
             gamedev:
@@ -1554,7 +1526,7 @@ const questions = [
 
             {
                 text:
-                    "Разработка программ",
+                    "Программирование на Python",
 
                 scores: {
                     dev: 6
@@ -1635,7 +1607,7 @@ const questions = [
                     "Создание нейросетей",
 
                 scores: {
-                    aiEngineer: 6
+                    frontend: 6
                 },
 
                 vote:
