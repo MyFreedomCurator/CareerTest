@@ -5,63 +5,65 @@
 const directions = {
     modeling: {
         name: "3D-моделирование",
-        icon: "🎨",
+        icon: "",
         color: "#e67e22",
         description: "Тебе может понравиться создавать трёхмерные объекты, персонажей и окружение для игр, фильмов или визуализаций.",
         starter: "создать 3D-модель простого предмета в Blender или освоить базовые инструменты моделирования."
     },
     uiux: {
         name: "UX/UI дизайн",
-        icon: "🎯",
+        icon: "",
         color: "#ff4fa2",
         description: "У тебя может быть сильная тяга к созданию удобных и красивых интерфейсов, продумыванию пользовательского опыта.",
         starter: "разработать дизайн-макет мобильного приложения или провести редизайн существующего сайта."
     },
     digitalArt: {
         name: "Цифровое рисование",
-        icon: "🖌️",
+        icon: "",
         color: "#ff9f43",
         description: "Тебе может быть близко визуальное творчество: персонажи, иллюстрации, атмосфера и создание собственного художественного мира.",
         starter: "нарисовать серию персонажей или иллюстрацию к своей любимой истории."
     },
     python: {
         name: "Программирование на Python",
-        icon: "🐍",
+        icon: "",
         color: "#4b7bec",
         description: "Тебе может понравиться создавать программы, разбираться в логике и превращать идеи в работающие системы.",
         starter: "написать небольшой Python-проект, Telegram-бота или программу, которая решает реальную задачу."
     },
     ai: {
         name: "Нейросети и AI инструменты",
-        icon: "🤖",
+        icon: "",
         color: "#8e44ad",
         description: "Тебе интересно использовать нейросети как инструмент для идей, обучения, творчества и ускорения работы.",
         starter: "собрать личный AI-workflow для учёбы или творчества и сравнить разные способы постановки задач нейросети."
     },
     web: {
         name: "Web-разработка",
-        icon: "🌐",
+        icon: "",
         color: "#00c896",
         description: "Тебе интересно сочетать технологию и визуальный результат: создавать сайты и интерфейсы, которыми удобно пользоваться.",
         starter: "создать личную веб-страницу или интерактивное мини-приложение на HTML, CSS и JavaScript."
     },
     cybersecurity: {
         name: "Кибербезопасность",
-        icon: "🔒",
+        icon: "",
         color: "#e74c3c",
         description: "Тебе интересно защищать системы, искать уязвимости и обеспечивать безопасность данных в цифровом мире.",
         starter: "изучить основы безопасности веб-приложений или попробовать себя в CTF-соревнованиях."
     },
     ml: {
         name: "Введение в машинное обучение",
-        icon: "📊",
+        icon: "",
         color: "#2ecc71",
         description: "Тебе интересно создавать алгоритмы, которые учатся на данных и принимают решения, анализировать закономерности.",
         starter: "создать простую модель машинного обучения с использованием библиотеки scikit-learn или TensorFlow."
     }
 };
 
-
+/* =========================================
+   PROFILE ORDER
+========================================= */
 
 const profileOrder = [
     "modeling",
@@ -74,6 +76,9 @@ const profileOrder = [
     "ml"
 ];
 
+/* =========================================
+   QUESTIONS (15 вопросов)
+========================================= */
 
 const questions = [
     /* 1 */
@@ -84,27 +89,27 @@ const questions = [
             {
                 text: "Создавать что-то своими руками или в 3D-редакторе",
                 scores: { modeling: 3, uiux: 1, digitalArt: 1 },
-                vote: "+1 к 3D-моделированию"
+                vote: "к 3D-моделированию"
             },
             {
                 text: "Сидеть в соц сетях, рассматривать работы художников, придумывать идеи для своих работ",
                 scores: { uiux: 3, digitalArt: 2, web: 1 },
-                vote: "+1 к Дизайну"
+                vote: "к Дизайну"
             },
             {
                 text: "Изучать новые технологии, как они создаются",
                 scores: { python: 2, web: 2, ml: 2, ai: 1 },
-                vote: "+1 к Программированию"
+                vote: "к Программированию"
             },
             {
                 text: "Решать головоломки, играть в игры-стратегии",
                 scores: { cybersecurity: 3, python: 1 },
-                vote: "+1 к Кибербезопасности"
+                vote: "к Кибербезопасности"
             },
             {
                 text: "Изучать что-то новое, составлять списки и анализировать результаты",
                 scores: { ml: 3, python: 1, ai: 1 },
-                vote: "+1 к ML"
+                vote: "к ML"
             }
         ]
     },
@@ -116,27 +121,27 @@ const questions = [
             {
                 text: "Математика, Алгебра, Геометрия, Физика",
                 scores: { python: 2, ml: 3, ai: 2 },
-                vote: "+1 к ML"
+                vote: "к ML"
             },
             {
                 text: "Информатика",
                 scores: { python: 3, web: 2, cybersecurity: 2, ml: 1 },
-                vote: "+1 к Программированию"
+                vote: "к Программированию"
             },
             {
                 text: "ИЗО, Музыка, Черчение, Дополнительные кружки",
                 scores: { digitalArt: 3, uiux: 2, modeling: 1 },
-                vote: "+1 к Digital Art"
+                vote: "к Digital Art"
             },
             {
                 text: "Труды",
                 scores: { modeling: 3, uiux: 2 },
-                vote: "+1 к 3D-моделированию"
+                vote: "к 3D-моделированию"
             },
             {
                 text: "Всё что связано с созданием, а не просто изучением",
                 scores: { modeling: 2, web: 1, python: 1 },
-                vote: "+1 к 3D-моделированию"
+                vote: "к 3D-моделированию"
             }
         ]
     },
@@ -148,22 +153,22 @@ const questions = [
             {
                 text: "Когда всё работает сразу и без ошибок",
                 scores: { python: 4, web: 2, cybersecurity: 2 },
-                vote: "+1 к Программированию"
+                vote: "к Программированию"
             },
             {
                 text: "Когда получилось красиво и можно показать друзьям",
                 scores: { uiux: 3, digitalArt: 3, modeling: 1 },
-                vote: "+1 к Дизайну"
+                vote: "к Дизайну"
             },
             {
                 text: "Когда система становится надёжной и не разрушаемой",
                 scores: { cybersecurity: 4, python: 2, web: 1 },
-                vote: "+1 к Кибербезопасности"
+                vote: "к Кибербезопасности"
             },
             {
                 text: "Когда внедряются современные технологии",
                 scores: { ml: 4, ai: 3, python: 2 },
-                vote: "+1 к ML"
+                vote: "к ML"
             }
         ]
     },
@@ -175,22 +180,22 @@ const questions = [
             {
                 text: "Рисовать персонажей, создавать окружение",
                 scores: { modeling: 4, digitalArt: 2 },
-                vote: "+1 к 3D-моделированию"
+                vote: "к 3D-моделированию"
             },
             {
                 text: "Продумывать детали для игроков: в какой стороне будет стоять этот эльф?",
                 scores: { uiux: 3, web: 2 },
-                vote: "+1 к UX/UI"
+                vote: "к UX/UI"
             },
             {
                 text: "Продумывать игровые механики, тестировать их работу на практике",
                 scores: { python: 3, web: 2, ml: 1 },
-                vote: "+1 к Программированию"
+                vote: "к Программированию"
             },
             {
                 text: "Создавать систему рекомендаций или ИИ-противников",
                 scores: { ai: 3, ml: 3, python: 2 },
-                vote: "+1 к AI"
+                vote: "к AI"
             }
         ]
     },
@@ -202,22 +207,22 @@ const questions = [
             {
                 text: "Как он устроен внутри",
                 scores: { web: 4, python: 2, cybersecurity: 1 },
-                vote: "+1 к Web"
+                vote: "к Web"
             },
             {
                 text: "Как красиво он выглядит",
                 scores: { uiux: 4, digitalArt: 1 },
-                vote: "+1 к Дизайну"
+                vote: "к Дизайну"
             },
             {
                 text: "Можно ли в нем что-нибудь сломать",
                 scores: { cybersecurity: 4, web: 2 },
-                vote: "+1 к Кибербезопасности"
+                vote: "к Кибербезопасности"
             },
             {
                 text: "Как улучшить его",
                 scores: { ml: 3, ai: 2, python: 1 },
-                vote: "+1 к ML"
+                vote: "к ML"
             }
         ]
     },
@@ -229,22 +234,22 @@ const questions = [
             {
                 text: "Как создаются 3D-модели и анимация",
                 scores: { modeling: 4, digitalArt: 2 },
-                vote: "+1 к 3D-моделированию"
+                vote: "к 3D-моделированию"
             },
             {
                 text: "Как нейросети помогают в жизни",
                 scores: { ai: 3, ml: 3, python: 2 },
-                vote: "+1 к AI"
+                vote: "к AI"
             },
             {
                 text: "Как защитить свои данные и проекты в интернете",
                 scores: { cybersecurity: 4, python: 1 },
-                vote: "+1 к Кибербезопасности"
+                vote: "к Кибербезопасности"
             },
             {
                 text: "Как создаются приложения и сайты",
                 scores: { web: 4, python: 2 },
-                vote: "+1 к Web"
+                vote: "к Web"
             }
         ]
     },
@@ -256,22 +261,22 @@ const questions = [
             {
                 text: "Нарисовать и спроектировать дизайн интерфейса",
                 scores: { uiux: 4, digitalArt: 2, web: 1 },
-                vote: "+1 к UX/UI"
+                vote: "к UX/UI"
             },
             {
                 text: "Создать работающие кнопки, проверить хранилище данных",
                 scores: { python: 4, ml: 3, ai: 1 },
-                vote: "+1 к Python"
+                vote: "к Python"
             },
             {
                 text: "Определить технические характеристики, найти способ обезопасить систему заранее",
                 scores: { cybersecurity: 4, python: 1 },
-                vote: "+1 к Кибербезопасности"
+                vote: "к Кибербезопасности"
             },
             {
                 text: "Погрузиться в дизайн и начать создавать объекты для сайта",
                 scores: { modeling: 4, digitalArt: 1 },
-                vote: "+1 к 3D-моделированию"
+                vote: "к 3D-моделированию"
             }
         ]
     },
@@ -283,22 +288,22 @@ const questions = [
             {
                 text: "Творчество",
                 scores: { digitalArt: 4, uiux: 2, modeling: 1 },
-                vote: "+1 к Digital Art"
+                vote: "к Digital Art"
             },
             {
                 text: "Логика и алгоритмы",
                 scores: { python: 3, web: 2, ml: 2 },
-                vote: "+1 к Программированию"
+                vote: "к Программированию"
             },
             {
                 text: "Очень сильное внимание к деталям",
                 scores: { cybersecurity: 4, python: 1 },
-                vote: "+1 к Кибербезопасности"
+                vote: "к Кибербезопасности"
             },
             {
                 text: "Построение сложных стратегий для решения задач",
                 scores: { ml: 4, ai: 2, python: 1 },
-                vote: "+1 к ML"
+                vote: "к ML"
             }
         ]
     },
@@ -310,22 +315,22 @@ const questions = [
             {
                 text: "Буду искать ошибку",
                 scores: { python: 3, web: 2, cybersecurity: 1 },
-                vote: "+1 к Python"
+                vote: "к Python"
             },
             {
                 text: "Попробую другой подход к решению",
                 scores: { ml: 3, ai: 2, python: 2 },
-                vote: "+1 к ML"
+                vote: "к ML"
             },
             {
                 text: "Поищу в интернете решение",
                 scores: { web: 2, python: 1, ai: 1 },
-                vote: "+1 к Web"
+                vote: "к Web"
             },
             {
                 text: "Проверю, точно ли вся техника работает",
                 scores: { cybersecurity: 3, python: 1 },
-                vote: "+1 к Кибербезопасности"
+                vote: "к Кибербезопасности"
             }
         ]
     },
@@ -337,22 +342,22 @@ const questions = [
             {
                 text: "Создавать 3D-персонажей и собственные миры",
                 scores: { modeling: 4, digitalArt: 2 },
-                vote: "+1 к 3D-моделированию"
+                vote: "к 3D-моделированию"
             },
             {
                 text: "Делать удобные и красивые сайты",
                 scores: { web: 4, uiux: 3 },
-                vote: "+1 к Web"
+                vote: "к Web"
             },
             {
                 text: "Защищать крутые приложения от атак хакеров",
                 scores: { cybersecurity: 4, python: 1 },
-                vote: "+1 к Кибербезопасности"
+                vote: "к Кибербезопасности"
             },
             {
                 text: "Разрабатывать собственные нейронные сети",
                 scores: { ml: 3, ai: 3, python: 2 },
-                vote: "+1 к ML"
+                vote: "к ML"
             }
         ]
     },
@@ -369,7 +374,7 @@ const questions = [
             ml: 0.25,
             ai: 0.05
         },
-        vote: "+1 к Python"
+        vote: "к Python"
     },
     /* 12 */
     {
@@ -383,7 +388,7 @@ const questions = [
             modeling: 0.25,
             web: 0.05
         },
-        vote: "+1 к Digital Art"
+        vote: "к Digital Art"
     },
     /* 13 */
     {
@@ -397,7 +402,7 @@ const questions = [
             web: 0.15,
             ml: 0.15
         },
-        vote: "+1 к Кибербезопасности"
+        vote: "к Кибербезопасности"
     },
     /* 14 */
     {
@@ -411,7 +416,7 @@ const questions = [
             python: 0.15,
             web: 0.25
         },
-        vote: "+1 к AI"
+        vote: "к AI"
     },
     /* 15 */
     {
@@ -421,47 +426,50 @@ const questions = [
             {
                 text: "3D-моделирование и анимация",
                 scores: { modeling: 6 },
-                vote: "+1 к 3D-моделированию"
+                vote: "к 3D-моделированию"
             },
             {
                 text: "UX/UI дизайн",
                 scores: { uiux: 6 },
-                vote: "+1 к UX/UI"
+                vote: "к UX/UI"
             },
             {
                 text: "Цифровое рисование",
                 scores: { digitalArt: 6 },
-                vote: "+1 к Digital Art"
+                vote: "к Digital Art"
             },
             {
                 text: "Программирование на Python",
                 scores: { python: 6 },
-                vote: "+1 к Python"
+                vote: "к Python"
             },
             {
                 text: "Нейросети и AI инструменты",
                 scores: { ai: 6 },
-                vote: "+1 к AI"
+                vote: "к AI"
             },
             {
                 text: "Web-разработка",
                 scores: { web: 6 },
-                vote: "+1 к Web"
+                vote: "к Web"
             },
             {
                 text: "Кибербезопасность",
                 scores: { cybersecurity: 6 },
-                vote: "+1 к Кибербезопасности"
+                vote: "к Кибербезопасности"
             },
             {
                 text: "Введение в машинное обучение",
                 scores: { ml: 6 },
-                vote: "+1 к ML"
+                vote: "к ML"
             }
         ]
     }
 ];
 
+/* =========================================
+   STATE
+========================================= */
 
 const state = {
     current: 0,
@@ -470,6 +478,9 @@ const state = {
     profile: Object.fromEntries(profileOrder.map(key => [key, 0]))
 };
 
+/* =========================================
+   DOM
+========================================= */
 
 const startScreen = document.getElementById("startScreen");
 const quizScreen = document.getElementById("quizScreen");
@@ -482,6 +493,11 @@ const progressPercent = document.getElementById("progressPercent");
 const backBtn = document.getElementById("backBtn");
 const nextBtn = document.getElementById("nextBtn");
 const scoreToast = document.getElementById("scoreToast");
+const profilePanel = document.getElementById("profilePanel");
+
+/* =========================================
+   EMAILJS INITIALIZATION
+========================================= */
 
 (function() {
     emailjs.init({
@@ -489,6 +505,9 @@ const scoreToast = document.getElementById("scoreToast");
     });
 })();
 
+/* =========================================
+   PROFILE RENDER
+========================================= */
 
 function renderProfile() {
     interestList.innerHTML = profileOrder
@@ -513,6 +532,9 @@ function renderProfile() {
         .join("");
 }
 
+/* =========================================
+   UPDATE PROFILE
+========================================= */
 
 function updateProfileFromScores() {
     const totals = Object.values(state.scores);
@@ -523,7 +545,9 @@ function updateProfileFromScores() {
     renderProfile();
 }
 
-
+/* =========================================
+   SHOW SCORE TOAST
+========================================= */
 
 function showToast(text, directionKey) {
     scoreToast.textContent = text;
@@ -533,7 +557,9 @@ function showToast(text, directionKey) {
     scoreToast.classList.add("show");
 }
 
-
+/* =========================================
+   CLEAR PREVIOUS ANSWER
+========================================= */
 
 function clearQuestionContribution(index) {
     const answer = state.answers[index];
@@ -550,6 +576,9 @@ function clearQuestionContribution(index) {
     }
 }
 
+/* =========================================
+   APPLY SINGLE ANSWER
+========================================= */
 
 function applySingleAnswer(question, optionIndex) {
     clearQuestionContribution(state.current);
@@ -573,6 +602,9 @@ function applySingleAnswer(question, optionIndex) {
     showToast(option.vote, directionKey);
 }
 
+/* =========================================
+   APPLY RANGE ANSWER
+========================================= */
 
 function applyRangeAnswer(question, value) {
     clearQuestionContribution(state.current);
@@ -596,6 +628,9 @@ function applyRangeAnswer(question, value) {
     updateProfileFromScores();
 }
 
+/* =========================================
+   RENDER QUESTION
+========================================= */
 
 function renderQuestion() {
     const question = questions[state.current];
@@ -673,7 +708,9 @@ function renderQuestion() {
     }
 }
 
-
+/* =========================================
+   SWITCH SCREEN
+========================================= */
 
 function switchScreen(screen) {
     [startScreen, quizScreen, resultsScreen].forEach(element => element.classList.remove("active"));
@@ -681,13 +718,17 @@ function switchScreen(screen) {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-
+/* =========================================
+   HAS ANSWER
+========================================= */
 
 function hasAnswer() {
     return state.answers[state.current] !== null;
 }
 
-
+/* =========================================
+   CALCULATE RESULTS
+========================================= */
 
 function calculateResults() {
     const sorted = [...profileOrder].sort((a, b) => state.scores[b] - state.scores[a]);
@@ -699,6 +740,9 @@ function calculateResults() {
     return { sorted, normalized };
 }
 
+/* =========================================
+   RENDER RESULTS
+========================================= */
 
 function renderResults() {
     const { sorted, normalized } = calculateResults();
@@ -744,7 +788,9 @@ function renderResults() {
     `;
 }
 
-
+/* =========================================
+   GET ALL ANSWERS FOR EMAIL
+========================================= */
 
 function getAllAnswers() {
     const answers = [];
@@ -793,7 +839,6 @@ function formatResultsForEmail(userName, userAge, userPhone, resultsData, allAns
         formattedText += `   ${direction.description}\n\n`;
     });
     
-    // Все ответы пользователя
     formattedText += `====================================\n`;
     formattedText += `ОТВЕТЫ НА ВОПРОСЫ:\n`;
     formattedText += `------------------------------------\n\n`;
@@ -804,7 +849,6 @@ function formatResultsForEmail(userName, userAge, userPhone, resultsData, allAns
         formattedText += `   Ответ: ${answer.answerText}\n\n`;
     });
     
-
     const winner = directions[sorted[0]];
     formattedText += `====================================\n`;
     formattedText += `ГЛАВНАЯ РЕКОМЕНДАЦИЯ:\n`;
@@ -816,7 +860,9 @@ function formatResultsForEmail(userName, userAge, userPhone, resultsData, allAns
     return formattedText;
 }
 
-
+/* =========================================
+   SEND RESULTS BY EMAIL
+========================================= */
 
 async function sendResultsByEmail(userName, userAge, userPhone, resultsData) {
     try {
@@ -862,7 +908,7 @@ async function sendResultsByEmail(userName, userAge, userPhone, resultsData) {
         
     } catch (error) {
         console.error('Ошибка отправки email:', error);
-        let errorMessage = "❌ Не удалось отправить результаты.";
+        let errorMessage = "Не удалось отправить результаты.";
         if (error.text) {
             try {
                 const errorData = JSON.parse(error.text);
@@ -877,14 +923,18 @@ async function sendResultsByEmail(userName, userAge, userPhone, resultsData) {
     }
 }
 
+/* =========================================
+   VALIDATE PHONE
+========================================= */
 
 function isValidPhone(phone) {
-
     const phoneRegex = /^[\+\d\s\-\(\)]{7,20}$/;
     return phoneRegex.test(phone);
 }
 
-
+/* =========================================
+   RESET TEST
+========================================= */
 
 function resetTest() {
     state.current = 0;
@@ -898,9 +948,12 @@ function resetTest() {
     
     renderProfile();
     switchScreen(startScreen);
+    profilePanel.style.display = "none";
 }
 
-
+/* =========================================
+   START BUTTON
+========================================= */
 
 document.getElementById("startBtn").addEventListener("click", () => {
     const name = document.getElementById("studentName").value.trim();
@@ -915,22 +968,17 @@ document.getElementById("startBtn").addEventListener("click", () => {
     }
     
     
-    if (phone && !isValidPhone(phone)) {
-        const phoneInput = document.getElementById("studentPhone");
-        phoneInput.focus();
-        phoneInput.style.borderColor = "var(--danger)";
-        showToast("⚠️ Пожалуйста, введите корректный номер телефона", "web");
-        setTimeout(() => { phoneInput.style.borderColor = ""; }, 800);
-        return;
-    }
+    // Показываем панель профиля только после старта теста
+    profilePanel.style.display = "block";
     
-   
     state.current = 0;
     switchScreen(quizScreen);
     renderQuestion();
 });
 
-
+/* =========================================
+   NEXT BUTTON
+========================================= */
 
 nextBtn.addEventListener("click", () => {
     if (!hasAnswer()) {
@@ -948,7 +996,9 @@ nextBtn.addEventListener("click", () => {
     renderQuestion();
 });
 
-
+/* =========================================
+   BACK BUTTON
+========================================= */
 
 backBtn.addEventListener("click", () => {
     if (state.current === 0) return;
@@ -956,45 +1006,39 @@ backBtn.addEventListener("click", () => {
     renderQuestion();
 });
 
+/* =========================================
+   SEND PHONE BUTTON
+========================================= */
 
 document.getElementById('sendPhoneBtn').addEventListener('click', async () => {
     const userName = document.getElementById('studentName').value.trim() || 'Пользователь';
     const userAge = document.getElementById('studentAge').value || '';
     const userPhone = document.getElementById('studentPhone').value.trim();
     
-    if (!userPhone) {
-        showToast("⚠️ Пожалуйста, укажите номер телефона для отправки результатов", "web");
-        document.getElementById('studentPhone').focus();
-        document.getElementById('studentPhone').style.borderColor = "var(--danger)";
-        setTimeout(() => {
-            document.getElementById('studentPhone').style.borderColor = "";
-        }, 800);
-        return;
-    }
-    
-    if (!isValidPhone(userPhone)) {
-        showToast("⚠️ Пожалуйста, введите корректный номер телефона", "web");
-        document.getElementById('studentPhone').focus();
-        document.getElementById('studentPhone').style.borderColor = "var(--danger)";
-        setTimeout(() => {
-            document.getElementById('studentPhone').style.borderColor = "";
-        }, 800);
-        return;
-    }
     
     const results = calculateResults();
-    showToast("⏳ Отправка результатов...", "web");
+    showToast("Отправка результатов...", "web");
     await sendResultsByEmail(userName, userAge, userPhone, results);
 });
 
-
+/* =========================================
+   RESTART
+========================================= */
 
 document.getElementById("restartBtn").addEventListener("click", resetTest);
 
+/* =========================================
+   PRINT
+========================================= */
 
 document.getElementById("printBtn").addEventListener("click", () => {
     window.print();
 });
 
+/* =========================================
+   INITIAL RENDER
+========================================= */
 
+// Скрываем панель профиля при загрузке страницы
+profilePanel.style.display = "none";
 renderProfile();
