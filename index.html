@@ -13,7 +13,7 @@
         content="Профориентационный тест для определения подходящего IT-направления"
     >
 
-    <title>IT Career Test — Профориентационный тест</title>
+    <title>IT Career Test — Профориентационный тест от Myfreedom</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,7 +22,6 @@
 
 <div class="app-shell">
 
-    <!-- HEADER -->
     <header class="topbar">
 
         <div class="brand">
@@ -32,14 +31,14 @@
             </div>
 
             <div class="brand-text">
-                IT Тест
+                IT Тест от Myfreedom
                 <span>для будущих создателей</span>
             </div>
 
         </div>
 
         <div class="status-pill" id="statusPill">
-            24 вопроса ~7 минут
+            15 вопросов ~ 5 минут
         </div>
 
     </header>
@@ -47,12 +46,8 @@
 
     <div class="layout">
 
-        <!-- MAIN CONTENT -->
         <main class="main-card">
 
-            <!-- ============================ -->
-            <!-- START SCREEN                  -->
-            <!-- ============================ -->
 
             <section
                 class="screen active"
@@ -94,7 +89,7 @@
                                 <input
                                     id="studentName"
                                     type="text"
-                                    placeholder="Например, Петрова Маша"
+                                    placeholder="Петрова Маша"
                                     autocomplete="name"
                                 >
 
@@ -104,7 +99,7 @@
                             <div class="field">
 
                                 <label for="studentAge">
-                                    Возраст
+                                    Возраст:
                                 </label>
 
                                 <input
@@ -117,18 +112,17 @@
 
                             </div>
 
-                            <!-- НОВОЕ ПОЛЕ ДЛЯ EMAIL -->
                             <div class="field">
 
-                                <label for="studentEmail">
-                                    Email для результатов
+                                <label for="studentPhone">
+                                    Если нужна помощь консультанта после тестирования, оставь номер телефона:
                                 </label>
 
                                 <input
-                                    id="studentEmail"
-                                    type="email"
-                                    placeholder="Ваш email"
-                                    autocomplete="email"
+                                    id="studentPhone"
+                                    type="tel"
+                                    placeholder="+375 (XX) XXX-XX-XX"
+                                    autocomplete="tel"
                                 >
 
                             </div>
@@ -154,18 +148,17 @@
                 id="quizScreen"
             >
 
-                <!-- PROGRESS -->
 
                 <div class="progress-wrap">
 
                     <div class="progress-row">
 
                         <span id="progressText">
-                            Вопрос 1 из 24
+                            Вопрос 1 из 15
                         </span>
 
                         <span id="progressPercent">
-                            4%
+                            7%
                         </span>
 
                     </div>
@@ -183,12 +176,9 @@
                 </div>
 
 
-                <!-- QUESTION -->
 
                 <div id="questionHost"></div>
 
-
-                <!-- NAVIGATION -->
 
                 <div class="navigation">
 
@@ -211,10 +201,6 @@
 
             </section>
 
-
-            <!-- ============================ -->
-            <!-- RESULTS SCREEN               -->
-            <!-- ============================ -->
 
             <section
                 class="screen"
@@ -240,15 +226,11 @@
                 </div>
 
 
-                <!-- RESULTS -->
-
                 <div
                     class="result-grid"
                     id="resultGrid"
                 ></div>
 
-
-                <!-- WINNER -->
 
                 <div
                     class="winner"
@@ -256,7 +238,6 @@
                 ></div>
 
 
-                <!-- ACTIONS -->
 
                 <div class="result-actions">
 
@@ -268,20 +249,13 @@
                     </button>
 
 
-                    <button
-                        class="ghost-btn"
-                        id="printBtn"
-                    >
-                        Сохранить / распечатать результат
-                    </button>
 
-                    <!-- НОВАЯ КНОПКА ОТПРАВКИ НА EMAIL -->
                     <button
                         class="ghost-btn"
-                        id="sendEmailBtn"
+                        id="sendPhoneBtn"
                         style="border-color: #39d98a; color: #39d98a;"
                     >
-                        📧 Отправить на email
+                        📱 Отправить консультантам
                     </button>
 
                 </div>
@@ -290,10 +264,6 @@
 
         </main>
 
-
-        <!-- ============================ -->
-        <!-- SIDE PROFILE                  -->
-        <!-- ============================ -->
 
         <aside
             class="side-card"
@@ -305,9 +275,8 @@
             </div>
 
             <div class="side-subtitle">
-                Эти показатели меняются по мере прохождения.
-                Они показывают общие склонности,
-                а не финальный результат.
+                Эти показатели показывают общие склонности,
+                а не финальный результат
             </div>
 
 
@@ -336,7 +305,7 @@
 
                     <span
                         class="legend-dot"
-                        style="background:#39d98a"
+                        style="background:#d98139"
                     ></span>
 
                     итоговый рейтинг
@@ -353,17 +322,14 @@
 </div>
 
 
-<!-- SCORE ANIMATION -->
 
 <div
     class="score-toast"
     id="scoreToast"
 ></div>
 
-<!-- ПОДКЛЮЧАЕМ EMAILJS -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-<!-- ПОДКЛЮЧАЕМ ОСНОВНОЙ СКРИПТ -->
 <script src="script.js"></script>
 
 </body>
