@@ -81,50 +81,61 @@
                         <div class="profile-form">
 
                             <div class="field">
-
-                                <label for="studentName">
-                                    Фамилия и Имя
-                                </label>
-
+                                <label for="studentName">Имя и Фамилия <span class="required">*</span></label>
                                 <input
                                     id="studentName"
                                     type="text"
                                     placeholder="Петрова Маша"
                                     autocomplete="name"
+                                    required
                                 >
-
                             </div>
 
-
                             <div class="field">
-
-                                <label for="studentAge">
-                                    Возраст:
-                                </label>
-
+                                <label for="studentAge">Возраст <span class="required">*</span></label>
                                 <input
                                     id="studentAge"
                                     type="number"
                                     min="8"
                                     max="20"
                                     placeholder="12"
+                                    required
                                 >
-
                             </div>
 
                             <div class="field">
-
-                                <label for="studentPhone">
-                                    Если нужна помощь консультанта после тестирования, оставь номер телефона:
-                                </label>
-
+                                <label for="studentPhone">Номер телефона <span class="required">*</span></label>
                                 <input
                                     id="studentPhone"
                                     type="tel"
                                     placeholder="+375 (XX) XXX-XX-XX"
                                     autocomplete="tel"
+                                    required
                                 >
+                            </div>
 
+                            <div class="field checkbox-field">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="parentPhoneCheck">
+                                    Это телефон родителя
+                                </label>
+                            </div>
+
+                            <div class="field">
+                                <label for="studentEmail">Электронная почта (необязательно)</label>
+                                <input
+                                    id="studentEmail"
+                                    type="email"
+                                    placeholder="example@mail.com"
+                                    autocomplete="email"
+                                >
+                            </div>
+
+                            <div class="field checkbox-field">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="termsCheck" required>
+                                    Я принимаю условия <a href="#" class="terms-link">соглашения</a> <span class="required">*</span>
+                                </label>
                             </div>
 
                         </div>
@@ -134,7 +145,7 @@
                             class="primary-btn wide-btn"
                             id="startBtn"
                         >
-                            Начать тест
+                            Перейти к тесту
                         </button>
 
                     </div>
