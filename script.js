@@ -84,90 +84,110 @@ const questions = [
     /* 1 */
     {
         type: "single",
-        title: "Что тебе нравится делать больше всего в свободное время?",
+        title: "Какой тип занятий тебе нравится больше всего?",
         options: [
             {
-                text: "Создавать что-то своими руками или в 3D-редакторе",
-                scores: { modeling: 3, uiux: 1, digitalArt: 1 },
-                vote: "к 3D-моделированию"
+                text: "Решать логические задачи",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 1},
+                vote: "+1 к Программированию!"
             },
             {
-                text: "Сидеть в соц сетях, рассматривать работы художников, придумывать идеи для своих работ",
-                scores: { uiux: 3, digitalArt: 2, web: 1 },
-                vote: "к Дизайну"
+                text: "Что-то придумывать с нуля",
+                scores: { python: 0, web: 0, uiux: 2, digitalArt: 0, modeling: 0, ai: 1, cybersecurity: 0},
+                vote: "+1 к UI"
             },
             {
-                text: "Изучать новые технологии, как они создаются",
-                scores: { python: 2, web: 2, ml: 2, ai: 1 },
-                vote: "к Программированию"
+                text: "Рисовать или создавать красивые картинки",
+                scores: { python: 0, web: 0, uiux: 1, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "+1 к Дизайну"
             },
             {
-                text: "Решать головоломки, играть в игры-стратегии",
-                scores: { cybersecurity: 3, python: 1 },
-                vote: "к Кибербезопасности"
+                text: "Создавать что-то на компьютере и видеть результат",
+                scores: { python: 0, web: 1, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
+                vote: "+1 к Веб-разработке"
             },
             {
-                text: "Изучать что-то новое, составлять списки и анализировать результаты",
-                scores: { ml: 3, python: 1, ai: 1 },
-                vote: "к ML"
+                text: "Разбираться, как всё устроено",
+                scores: { python: 1, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
+                vote: "+1 к Разработке"
+            },
+            {
+                text: "Помогать другим решать задачи",
+                scores: { python: 0, web: 0, uiux: 1, digitalArt: 0, modeling: 0, ai: 1, cybersecurity: 0},
+                vote: "+ 1 к Дизайну"
             }
         ]
     },
     /* 2 */
     {
         type: "single",
-        title: "Какой школьный предмет тебе нравится больше?",
+        title: "Как ты обычно проводишь свободное время?",
         options: [
             {
-                text: "Математика, Алгебра, Геометрия, Физика",
-                scores: { python: 2, ml: 3, ai: 2 },
-                vote: "к ML"
+                text: "Играю в компьютерные игры",
+                scores: { python: 1, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
+                vote: "+1 к Моделированию"
             },
             {
-                text: "Информатика",
-                scores: { python: 3, web: 2, cybersecurity: 2, ml: 1 },
-                vote: "к Программированию"
+                text: "Рисую, оформляю, создаю картинки",
+                scores: { python: 0, web: 0, uiux: 1, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "+1 к Дизайну"
             },
             {
-                text: "ИЗО, Музыка, Черчение, Дополнительные кружки",
-                scores: { digitalArt: 3, uiux: 2, modeling: 1 },
-                vote: "к Digital Art"
+                text: "Смотрю видео, изучаю новое",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 2, cybersecurity: 0},
+                vote: "+1 к Нейронным сетям"
             },
             {
-                text: "Труды",
-                scores: { modeling: 3, uiux: 2 },
-                vote: "к 3D-моделированию"
+                text: "Что-нибудь создаю или собираю",
+                scores: { python: 1, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
+                vote: "+1 к 3D-моделированию"
             },
             {
-                text: "Всё что связано с созданием, а не просто изучением",
-                scores: { modeling: 2, web: 1, python: 1 },
-                vote: "к 3D-моделированию"
+                text: "Пробую программы, настройки компьютера",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 1, cybersecurity: 2},
+                vote: "+1 к Кибербезопасности"
+            },
+            {
+                text: "Программирую или делаю сайты",
+                scores: { python: 2, web: 2, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "+1 к Веб-разработке"
             }
         ]
     },
     /* 3 */
     {
         type: "single",
-        title: "Что приносит тебе больше удовольствия при создании чего-то нового?",
+        title: "Какие технологии тебе интереснее всего?",
         options: [
             {
-                text: "Когда всё работает сразу и без ошибок",
-                scores: { python: 4, web: 2, cybersecurity: 2 },
+                text: "Компьютерные игры",
+                scores: { python: 1, web: 2, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
                 vote: "к Программированию"
             },
             {
-                text: "Когда получилось красиво и можно показать друзьям",
-                scores: { uiux: 3, digitalArt: 3, modeling: 1 },
+                text: "Искусственный интеллект",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 2, cybersecurity: 0},
                 vote: "к Дизайну"
             },
             {
-                text: "Когда система становится надёжной и не разрушаемой",
-                scores: { cybersecurity: 4, python: 2, web: 1 },
+                text: "Создание сайтов",
+                scores:{ python: 0, web: 2, uiux: 1, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Кибербезопасности"
             },
             {
-                text: "Когда внедряются современные технологии",
-                scores: { ml: 4, ai: 3, python: 2 },
+                text: "Компьютерная графика",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 2, modeling: 1, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Как работают программы",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            }            ,
+            {
+                text: "Как защищают компьютеры и данные",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
                 vote: "к ML"
             }
         ]
@@ -175,26 +195,26 @@ const questions = [
     /* 4 */
     {
         type: "single",
-        title: "Представь, что ты создаёшь игру. Что тебе интереснее?",
+        title: "Если появилась сложная задача, ты скорее…",
         options: [
             {
-                text: "Рисовать персонажей, создавать окружение",
-                scores: { modeling: 4, digitalArt: 2 },
+                text: "Разобью ее на несколько маленьких задач",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к 3D-моделированию"
             },
             {
-                text: "Продумывать детали для игроков: в какой стороне будет стоять этот эльф?",
-                scores: { uiux: 3, web: 2 },
+                text: "Буду пробовать разные варианты",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 1, ai: 2, cybersecurity: 0},
                 vote: "к UX/UI"
             },
             {
-                text: "Продумывать игровые механики, тестировать их работу на практике",
-                scores: { python: 3, web: 2, ml: 1 },
+                text: "Сначала посмотрю примеры",
+                scores: { python: 0, web: 0, uiux: 1, digitalArt: 1, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Программированию"
             },
             {
-                text: "Создавать систему рекомендаций или ИИ-противников",
-                scores: { ai: 3, ml: 3, python: 2 },
+                text: "Попробую понять, где именно проблема",
+                scores: { python: 1, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
                 vote: "к AI"
             }
         ]
@@ -202,26 +222,26 @@ const questions = [
     /* 5 */
     {
         type: "single",
-        title: "Когда видишь красивый сайт, ты чаще думаешь...",
+        title: "Если что-то не получается сразу…",
         options: [
             {
-                text: "Как он устроен внутри",
-                scores: { web: 4, python: 2, cybersecurity: 1 },
+                text: "Ищу ошибку и пробую исправить",
+                scores: { python: 1, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
                 vote: "к Web"
             },
             {
-                text: "Как красиво он выглядит",
-                scores: { uiux: 4, digitalArt: 1 },
+                text: "Пробую сделать другим способом",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 2, cybersecurity: 0},
                 vote: "к Дизайну"
             },
             {
-                text: "Можно ли в нем что-нибудь сломать",
-                scores: { cybersecurity: 4, web: 2 },
+                text: "Смотрю пример или инструкцию",
+                scores: { python: 0, web: 1, uiux: 0, digitalArt: 0, modeling: 1, ai: 0, cybersecurity: 0},
                 vote: "к Кибербезопасности"
             },
             {
-                text: "Как улучшить его",
-                scores: { ml: 3, ai: 2, python: 1 },
+                text: "Переделываю, пока результат не понравится",
+                scores: { python: 0, web: 0, uiux: 1, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к ML"
             }
         ]
@@ -229,26 +249,26 @@ const questions = [
     /* 6 */
     {
         type: "single",
-        title: "Что тебе интереснее изучать?",
+        title: "Когда появляется новая программа…",
         options: [
             {
-                text: "Как создаются 3D-модели и анимация",
-                scores: { modeling: 4, digitalArt: 2 },
+                text: "Сразу начинаю пробовать инструменты",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 1, modeling: 2, ai: 0, cybersecurity: 0},
                 vote: "к 3D-моделированию"
             },
             {
-                text: "Как нейросети помогают в жизни",
-                scores: { ai: 3, ml: 3, python: 2 },
+                text: "Сначала хочу понять, как все устроено",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 1},
                 vote: "к AI"
             },
             {
-                text: "Как защитить свои данные и проекты в интернете",
-                scores: { cybersecurity: 4, python: 1 },
+                text: "Смотрю видео и повторяю",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 1, modeling: 1, ai: 0, cybersecurity: 0},
                 vote: "к Кибербезопасности"
             },
             {
-                text: "Как создаются приложения и сайты",
-                scores: { web: 4, python: 2 },
+                text: "Думаю, что с ее помощью можно создать",
+                scores: { python: 0, web: 0, uiux: 1, digitalArt: 0, modeling: 0, ai: 2, cybersecurity: 0},
                 vote: "к Web"
             }
         ]
@@ -256,26 +276,41 @@ const questions = [
     /* 7 */
     {
         type: "single",
-        title: "Есть проект по созданию сайта. Какую задачу ты выберешь первой?",
+        title: "Что тебе было бы интереснее сделать самому?",
         options: [
             {
-                text: "Нарисовать и спроектировать дизайн интерфейса",
-                scores: { uiux: 4, digitalArt: 2, web: 1 },
+                text: "Игру",
+                scores:{ python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
                 vote: "к UX/UI"
             },
             {
-                text: "Создать работающие кнопки, проверить хранилище данных",
-                scores: { python: 4, ml: 3, ai: 1 },
+                text: "Сайт",
+                scores: { python: 0, web: 2, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Python"
             },
             {
-                text: "Определить технические характеристики, найти способ обезопасить систему заранее",
-                scores: { cybersecurity: 4, python: 1 },
+                text: "Красивый дизайн приложения",
+                scores: { python: 0, web: 0, uiux: 2, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Кибербезопасности"
             },
             {
-                text: "Погрузиться в дизайн и начать создавать объекты для сайта",
-                scores: { modeling: 4, digitalArt: 1 },
+                text: "Персонажа или иллюстрацию",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к 3D-моделированию"
+            },
+            {
+                text: "3D-модель или игровой мир",
+                scores: { python: 1, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
+                vote: "к 3D-моделированию"
+            },
+            {
+                text: "AI-помощника",
+                scores: { python: 1, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 2, cybersecurity: 0},
+                vote: "к 3D-моделированию"
+            },
+            {
+                text: "Систему защиты компьютера",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
                 vote: "к 3D-моделированию"
             }
         ]
@@ -283,26 +318,36 @@ const questions = [
     /* 8 */
     {
         type: "single",
-        title: "Что тебе ближе?",
+        title: "Что приносит больше удовольствия?",
         options: [
             {
-                text: "Творчество",
-                scores: { digitalArt: 4, uiux: 2, modeling: 1 },
+                text: "Когда всё наконец заработало",
+                scores: { python: 2, web: 1, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Digital Art"
             },
             {
-                text: "Логика и алгоритмы",
-                scores: { python: 3, web: 2, ml: 2 },
+                text: "Когда получилось красиво",
+                scores: { python: 0, web: 0, uiux: 1, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Программированию"
             },
             {
-                text: "Очень сильное внимание к деталям",
-                scores: { cybersecurity: 4, python: 1 },
+                text: "Когда получилось удобно для других",
+                scores:{ python: 0, web: 1, uiux: 2, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Кибербезопасности"
             },
             {
-                text: "Построение сложных стратегий для решения задач",
-                scores: { ml: 4, ai: 2, python: 1 },
+                text: "Когда получилось необычно",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 1, modeling: 0, ai: 2, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Когда нашел ошибку, которую долго искал",
+                scores: { python: 1, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
+                vote: "к ML"
+            },
+            {
+                text: "Когда сделал объемный объект или сцену",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
                 vote: "к ML"
             }
         ]
@@ -310,26 +355,41 @@ const questions = [
     /* 9 */
     {
         type: "single",
-        title: "Если что-то не получается в работе за компьютером...",
+        title: "Представь общий проект. Чем бы ты хотел заниматься?",
         options: [
             {
-                text: "Буду искать ошибку",
-                scores: { python: 3, web: 2, cybersecurity: 1 },
+                text: "Писать код",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Python"
             },
             {
-                text: "Попробую другой подход к решению",
-                scores: { ml: 3, ai: 2, python: 2 },
+                text: "Собирать сайт",
+                scores: { python: 0, web: 2, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к ML"
             },
             {
-                text: "Поищу в интернете решение",
-                scores: { web: 2, python: 1, ai: 1 },
+                text: "Придумывать, как будет выглядеть приложение",
+                scores: { python: 0, web: 0, uiux: 2, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Web"
             },
             {
-                text: "Проверю, точно ли вся техника работает",
-                scores: { cybersecurity: 3, python: 1 },
+                text: "Рисовать",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Кибербезопасности"
+            },
+            {
+                text: "Создать объекты и локации",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
+                vote: "к Кибербезопасности"
+            },
+            {
+                text: "Использовать нейросети",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai:2, cybersecurity: 0},
+                vote: "к Кибербезопасности"
+            },
+            {
+                text: "Проверять проект на ошибки и безопасность",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
                 vote: "к Кибербезопасности"
             }
         ]
@@ -337,131 +397,358 @@ const questions = [
     /* 10 */
     {
         type: "single",
-        title: "Какая работа кажется интереснее?",
+        title: "Какая роль в команде тебе ближе?",
         options: [
             {
-                text: "Создавать 3D-персонажей и собственные миры",
-                scores: { modeling: 4, digitalArt: 2 },
+                text: "Решать сложные технические задачи",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к 3D-моделированию"
             },
             {
-                text: "Делать удобные и красивые сайты",
-                scores: { web: 4, uiux: 3 },
+                text: "Собирать все в готовый результат",
+                scores: { python: 0, web: 2, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Web"
             },
             {
-                text: "Защищать крутые приложения от атак хакеров",
-                scores: { cybersecurity: 4, python: 1 },
+                text: "Думать, как сделать удобно",
+                scores: { python: 0, web: 0, uiux: 2, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Кибербезопасности"
             },
             {
-                text: "Разрабатывать собственные нейронные сети",
-                scores: { ml: 3, ai: 3, python: 2 },
+                text: "Отвечать за внешний вид",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Создавать мир и объекты",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Искать новые способы сделать быстрее",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling:0 , ai: 2, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Искать слабые места и ошибки",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
                 vote: "к ML"
             }
         ]
     },
     /* 11 */
     {
-        type: "range",
-        title: "Насколько тебе нравится решать логические задачи?",
-        minLabel: "Совсем не люблю",
-        maxLabel: "Очень люблю",
-        scoreMap: {
-            python: 0.35,
-            web: 0.15,
-            cybersecurity: 0.2,
-            ml: 0.25,
-            ai: 0.05
-        },
-        vote: "к Python"
+        type: "single",
+        title: "За чем к тебе чаще обращаются друзья?",
+        options: [
+            {
+                text: "Объяснить сложную задачу",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к 3D-моделированию"
+            },
+            {
+                text: "Помочь с компьютером или настройками",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
+                vote: "к Web"
+            },
+            {
+                text: "Красиво оформить что-нибудь",
+                scores: { python: 0, web: 0, uiux: 1, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Кибербезопасности"
+            },
+            {
+                text: "Придумать идею",
+                scores: { python: 0, web: 0, uiux: 1, digitalArt: 0, modeling: 0, ai: 1, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Сделать что-то техническое",
+                scores: { python: 1, web: 1, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            }
+        ]
     },
     /* 12 */
     {
-        type: "range",
-        title: "Насколько тебе нравится рисовать, лепить и создавать что-то новое руками?",
-        minLabel: "Совсем не люблю",
-        maxLabel: "Очень люблю",
-        scoreMap: {
-            digitalArt: 0.4,
-            uiux: 0.3,
-            modeling: 0.25,
-            web: 0.05
-        },
-        vote: "к Digital Art"
+        type: "single",
+        title: "С какими задачами справляешься легче?",
+        options: [
+            {
+                text: "Где нужно найти закономерность",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к 3D-моделированию"
+            },
+            {
+                text: "Где нужно собрать много частей вместе",
+                scores: { python: 0, web: 2, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Web"
+            },
+            {
+                text: "Где нужно понять, что будет удобно человеку",
+                scores: { python: 0, web: 0, uiux: 2, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Кибербезопасности"
+            },
+            {
+                text: "Где нужно придумать красивый образ",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Где нужно представить объект в объеме",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Где можно экспериментировать и искать необычное решение",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 2, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Где нужно найти ошибку или слабое место",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
+                vote: "к ML"
+            }
+        ]
     },
     /* 13 */
     {
-        type: "range",
-        title: "Насколько тебе интересно узнать о защитах против хакеров на сайтах, в играх и соц сетях?",
-        minLabel: "Совсем неинтересно",
-        maxLabel: "Очень интересно",
-        scoreMap: {
-            cybersecurity: 0.55,
-            python: 0.15,
-            web: 0.15,
-            ml: 0.15
-        },
-        vote: "к Кибербезопасности"
+        type: "single",
+        title: "Какой школьный предмет тебе ближе?",
+        options: [
+            {
+                text: "Математика",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 1, cybersecurity: 0},
+                vote: "к 3D-моделированию"
+            },
+            {
+                text: "Информатика",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 1},
+                vote: "к Web"
+            },
+            {
+                text: "ИЗО",
+                scores: { python: 0, web: 0, uiux: 1, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Кибербезопасности"
+            },
+            {
+                text: "Технология/Труд",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Английский язык",
+                scores: { python: 0, web: 1, uiux: 0, digitalArt: 0, modeling: 0, ai: 1, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Здесь нет моего любимого предмета",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            }
+        ]
     },
     /* 14 */
     {
-        type: "range",
-        title: "Тебе бы хотелось больше узнавать о том, как роботы учатся ходить, говорить и понимать людей?",
-        minLabel: "Кажется неинтересным",
-        maxLabel: "Очень хочется узнать",
-        scoreMap: {
-            ai: 0.3,
-            ml: 0.3,
-            python: 0.15,
-            web: 0.25
-        },
-        vote: "к AI"
+        type: "single",
+        title: "Что ты чаще замечаешь?",
+        options: [
+            {
+                text: "Ошибки и несоответствия",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
+                vote: "к 3D-моделированию"
+            },
+            {
+                text: "Красивые картинки и детали",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Web"
+            },
+            {
+                text: "Неудобные сайты и приложения",
+                scores: { python: 0, web: 0, uiux: 2, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Кибербезопасности"
+            },
+            {
+                text: "Как устроены программы",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Интересные сайты",
+                scores: { python: 0, web: 2, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Графику и миры в играх",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
+                vote: "к ML"
+            },
+            {
+                text: "Новые возможности нейросетей",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 2, cybersecurity: 0},
+                vote: "к ML"
+            }
+        ]
     },
     /* 15 */
     {
         type: "single",
-        title: "Представь, что ты можешь бесплатно пройти любой курс. Что выберешь?",
+        title: "Что тебе больше по душе?",
         options: [
             {
-                text: "3D-моделирование и анимация",
-                scores: { modeling: 6 },
+                text: "Четкая задача и понятный правильный результат",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 1},
                 vote: "к 3D-моделированию"
             },
             {
-                text: "UX/UI дизайн",
-                scores: { uiux: 6 },
+                text: "Есть задача, но способ решения можно придумать самому",
+                scores: { python: 0, web: 1, uiux: 0, digitalArt: 0, modeling: 1, ai: 0, cybersecurity: 0},
                 vote: "к UX/UI"
             },
             {
-                text: "Цифровое рисование",
-                scores: { digitalArt: 6 },
+                text: "Максимум свободы и творчества",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Digital Art"
             },
             {
-                text: "Программирование на Python",
-                scores: { python: 6 },
+                text: "Понять людей и придумать решение для них",
+                scores: { python: 0, web: 0, uiux: 2, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Python"
             },
             {
-                text: "Нейросети и AI инструменты",
-                scores: { ai: 6 },
+                text: "Экспериментировать с новыми технологиями",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 2, cybersecurity: 0},
+                vote: "к AI"
+            }
+        ]
+    },
+    /* 16 */
+    {
+        type: "single",
+        title: "Какие кружки или занятия тебе нравились?",
+        options: [
+            {
+                text: "Программирование",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к 3D-моделированию"
+            },
+            {
+                text: "Робототехника/LEGO",
+                scores: { python: 1, web: 0, uiux: 0, digitalArt: 0, modeling: 1, ai: 0, cybersecurity: 0},
+                vote: "к UX/UI"
+            },
+            {
+                text: "Рисование",
+                scores:{ python: 0, web: 0, uiux: 0, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Digital Art"
+            },
+            {
+                text: "Шахматы / логические игры",
+                scores: { python: 1, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 1},
+                vote: "к Python"
+            },
+            {
+                text: "Создание сайтов",
+                scores: { python: 0, web: 2, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к AI"
             },
             {
-                text: "Web-разработка",
-                scores: { web: 6 },
+                text: "Дизайн",
+                scores: { python: 0, web: 0, uiux: 2, digitalArt: 1, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к Web"
             },
             {
-                text: "Кибербезопасность",
-                scores: { cybersecurity: 6 },
+                text: " 3D моделирование или конструирование",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
                 vote: "к Кибербезопасности"
             },
             {
-                text: "Введение в машинное обучение",
-                scores: { ml: 6 },
+                text: "Пока ничего такого не пробовал",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
                 vote: "к ML"
+            }
+        ]
+    },
+    /* 17 */
+    {
+        type: "single",
+        title: "Что тебе было бы интереснее научиться делать через год?",
+        options: [
+            {
+                text: "Писать свои программы",
+                scores:{ python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к 3D-моделированию"
+            },
+            {
+                text: "Создавать настоящие сайты",
+                scores: { python: 0, web: 2, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к UX/UI"
+            },
+            {
+                text: "Проектировать приложения",
+                scores: { python: 0, web: 0, uiux: 2, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Digital Art"
+            },
+            {
+                text: "Создавать цифровые иллюстрации",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Python"
+            },
+            {
+                text: "Делать игровые объекты и локации",
+                scores:{ python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
+                vote: "к AI"
+            },
+            {
+                text: "Использовать AI для собственных проектов",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 2, cybersecurity: 0},
+                vote: "к Web"
+            },
+            {
+                text: "Разбираться в защите компьютерных сетей",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
+                vote: "к Кибербезопасности"
+            }
+        ]
+    },
+    /* 18 */
+    {
+        type: "single",
+        title: "Какой проект ты выбрал бы прямо сейчас?",
+        options: [
+            {
+                text: "Сделать Telegram-бота",
+                scores: { python: 2, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к 3D-моделированию"
+            },
+            {
+                text: "Сделать сайт про свое увлечение",
+                scores: { python: 0, web: 2, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к UX/UI"
+            },
+            {
+                text: "Придумать дизайн мобильного приложения",
+                scores: { python: 0, web: 0, uiux: 2, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Digital Art"
+            },
+            {
+                text: "Нарисовать персонажа для игры",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 2, modeling: 0, ai: 0, cybersecurity: 0},
+                vote: "к Python"
+            },
+            {
+                text: "Сделать игровую карту или 3D-мир",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 2, ai: 0, cybersecurity: 0},
+                vote: "к AI"
+            },
+            {
+                text: "Создать своего AI-помощника",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 2, cybersecurity: 0},
+                vote: "к Web"
+            },
+            {
+                text: "Попробовать найти уязвимости как Белый хакер",
+                scores: { python: 0, web: 0, uiux: 0, digitalArt: 0, modeling: 0, ai: 0, cybersecurity: 2},
+                vote: "+ 2 к Кибербезопасности"
             }
         ]
     }
