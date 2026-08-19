@@ -762,7 +762,8 @@ const state = {
     current: 0,
     answers: Array(questions.length).fill(null),
     scores: Object.fromEntries(profileOrder.map(key => [key, 0])),
-    profile: Object.fromEntries(profileOrder.map(key => [key, 0]))
+    profile: Object.fromEntries(profileOrder.map(key => [key, 0])),
+    emailSent: false
 };
 
 /* =========================================
@@ -791,6 +792,85 @@ const profilePanel = document.getElementById("profilePanel");
         publicKey: "_lb-BSelfaLtrYDbn"
     });
 })();
+
+/* =========================================
+   ВАЛИДАЦИЯ
+========================================= */
+
+function validatePhone(phone) {
+    // Удаляем все пробелы, скобки и дефисы для проверки
+    const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+    // Проверяем: начинается с +375, затем 9 цифр (всего 13 символов с +)
+    const phoneRegex = /^\+375\d{9}$/;
+    return phoneRegex.test(cleanPhone);
+}
+
+function validateEmail(email) {
+    if (!email) return true; // Поле необязательное
+    return email.length >= 7 && email.includes('@');
+}
+
+function validateForm() {
+    let isValid = true;
+    
+    // Валидация телефона
+    const phoneInput = document.getElementById('studentPhone');
+    const phoneError = document.getElementById('phoneError');
+    const phone = phoneInput.value.trim();
+    
+    if (!validatePhone(phone)) {
+        phoneInput.classList.add('error');
+        phoneError.classList.add('show');
+        isValid = false;
+    } else {
+        phoneInput.classList.remove('error');
+        phoneError.classList.remove('show');
+    }
+    
+    // Валидация email (если заполнен)
+    const emailInput = document.getElementById('studentEmail');
+    const emailError = document.getElementById('emailError');
+    const email = emailInput.value.trim();
+    
+    if (email && !validateEmail(email)) {
+        emailInput.classList.add('error');
+        emailError.classList.add('show');
+        isValid = false;
+    } else {
+        emailInput.classList.remove('error');
+        emailError.classList.remove('show');
+    }
+    
+    // Валидация чекбокса согласия
+    const termsCheck = document.getElementById('termsCheck');
+    if (!termsCheck.checked) {
+        termsCheck.classList.add('error');
+        isValid = false;
+    } else {
+        termsCheck.classList.remove('error');
+    }
+    
+    // Валидация имени
+    const nameInput = document.getElementById('studentName');
+    if (!nameInput.value.trim()) {
+        nameInput.classList.add('error');
+        isValid = false;
+    } else {
+        nameInput.classList.remove('error');
+    }
+    
+    // Валидация возраста
+    const ageInput = document.getElementById('studentAge');
+    const age = parseInt(ageInput.value);
+    if (!ageInput.value || age < 8 || age > 20) {
+        ageInput.classList.add('error');
+        isValid = false;
+    } else {
+        ageInput.classList.remove('error');
+    }
+    
+    return isValid;
+}
 
 /* =========================================
    PROFILE RENDER
@@ -838,7 +918,7 @@ function updateProfileFromScores() {
 
 function showToast(text, directionKey) {
     scoreToast.textContent = text;
-    scoreToast.style.background = directions[directionKey]?.color || "#07a2e2";
+    scoreToast.style.background = directions[directionKey]?.color || "linear-gradient(135deg, #00d4ff, #7b2ffc)";
     scoreToast.classList.remove("show");
     void scoreToast.offsetWidth;
     scoreToast.classList.add("show");
@@ -1049,7 +1129,7 @@ function renderResults() {
                     <h3>${direction.icon} ${direction.name}</h3>
                     <p>${direction.description}</p>
                     <div class="result-meter">
-                        <span style="width: ${percent}%; background: linear-gradient(90deg, ${direction.color}, #0393d1);"></span>
+                        <span style="width: ${percent}%; background: linear-gradient(90deg, ${direction.color}, var(--cyber-blue));"></span>
                     </div>
                 </div>
                 <div class="result-percent">${percent}%</div>
@@ -1101,19 +1181,41 @@ function getAllAnswers() {
 }
 
 /* =========================================
-   FORMAT RESULTS FOR EMAIL
+   GET FORM DATA
 ========================================= */
 
-function formatResultsForEmail(userName, userAge, userPhone, resultsData, allAnswers) {
+function getFormData() {
+    const name = document.getElementById('studentName').value.trim();
+    const age = document.getElementById('studentAge').value;
+    const phone = document.getElementById('studentPhone').value.trim();
+    const email = document.getElementById('studentEmail').value.trim();
+    const isParentPhone = document.getElementById('parentPhoneCheck').checked;
+    
+    return { name, age, phone, email, isParentPhone };
+}
+
+/* =========================================
+   FORMAT RESULTS FOR EMAIL (с данными формы в начале)
+========================================= */
+
+function formatResultsForEmail(formData, resultsData, allAnswers) {
     const { sorted, normalized } = resultsData;
     
-    let formattedText = `РЕЗУЛЬТАТЫ ПРОФОРИЕНТАЦИОННОГО ТЕСТА\n`;
+    let formattedText = `====================================\n`;
+    formattedText += `   РЕЗУЛЬТАТЫ ПРОФОРИЕНТАЦИОННОГО ТЕСТА\n`;
     formattedText += `====================================\n\n`;
-    formattedText += `Имя: ${userName}\n`;
-    formattedText += `Возраст: ${userAge || 'Не указан'}\n`;
-    formattedText += `Телефон: ${userPhone || 'Не указан'}\n\n`;
     
-    formattedText += ` НАБРАННЫЕ БАЛЛЫ ПО НАПРАВЛЕНИЯМ:\n`;
+    // Данные формы в начале письма
+    formattedText += `📋 ДАННЫЕ УЧАСТНИКА:\n`;
+    formattedText += `------------------------------------\n`;
+    formattedText += `Имя и Фамилия: ${formData.name || 'Не указано'}\n`;
+    formattedText += `Возраст: ${formData.age || 'Не указан'} лет\n`;
+    formattedText += `Телефон: ${formData.phone || 'Не указан'}\n`;
+    formattedText += `Email: ${formData.email || 'Не указан'}\n`;
+    formattedText += `Телефон родителя: ${formData.isParentPhone ? 'Да' : 'Нет'}\n`;
+    formattedText += `------------------------------------\n\n`;
+    
+    formattedText += `🎯 НАБРАННЫЕ БАЛЛЫ ПО НАПРАВЛЕНИЯМ:\n`;
     formattedText += `------------------------------------\n\n`;
     
     sorted.forEach((key) => {
@@ -1127,22 +1229,22 @@ function formatResultsForEmail(userName, userAge, userPhone, resultsData, allAns
     });
     
     formattedText += `====================================\n`;
-    formattedText += `ОТВЕТЫ НА ВОПРОСЫ:\n`;
+    formattedText += `📝 ОТВЕТЫ НА ВОПРОСЫ:\n`;
     formattedText += `------------------------------------\n\n`;
     
     allAnswers.forEach((answer, index) => {
         const num = index + 1;
         formattedText += `${num}. ${answer.questionText}\n`;
-        formattedText += `   Ответ: ${answer.answerText}\n\n`;
+        formattedText += `   ➤ Ответ: ${answer.answerText}\n\n`;
     });
     
     const winner = directions[sorted[0]];
     formattedText += `====================================\n`;
-    formattedText += `ГЛАВНАЯ РЕКОМЕНДАЦИЯ:\n`;
+    formattedText += `🏆 ГЛАВНАЯ РЕКОМЕНДАЦИЯ:\n`;
     formattedText += `   ${winner.icon} ${winner.name}\n\n`;
-    formattedText += `Попробуй: ${winner.starter}\n\n`;
+    formattedText += `✨ Попробуй: ${winner.starter}\n\n`;
     formattedText += `====================================\n`;
-    formattedText += `Тест пройден: ${new Date().toLocaleDateString('ru-RU')}`;
+    formattedText += `📅 Тест пройден: ${new Date().toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}`;
     
     return formattedText;
 }
@@ -1151,10 +1253,10 @@ function formatResultsForEmail(userName, userAge, userPhone, resultsData, allAns
    SEND RESULTS BY EMAIL
 ========================================= */
 
-async function sendResultsByEmail(userName, userAge, userPhone, resultsData) {
+async function sendResultsByEmail(formData, resultsData) {
     try {
         const allAnswers = getAllAnswers();
-        const emailContent = formatResultsForEmail(userName, userAge, userPhone, resultsData, allAnswers);
+        const emailContent = formatResultsForEmail(formData, resultsData, allAnswers);
         
         const answerParams = {};
         allAnswers.forEach((answer, index) => {
@@ -1172,11 +1274,13 @@ async function sendResultsByEmail(userName, userAge, userPhone, resultsData) {
         });
         
         const templateParams = {
-            name: userName,
+            name: formData.name || 'Пользователь',
             time: timeString,
             timestamp: timeString,
-            age: userAge || 'Не указан',
-            phone: userPhone || 'Не указан',
+            age: formData.age || 'Не указан',
+            phone: formData.phone || 'Не указан',
+            email: formData.email || 'Не указан',
+            isParentPhone: formData.isParentPhone ? 'Да' : 'Нет',
             results: emailContent,
             top1: resultsData.sorted[0] ? directions[resultsData.sorted[0]].name : 'Не определено',
             top2: resultsData.sorted[1] ? directions[resultsData.sorted[1]].name : 'Не определено',
@@ -1191,11 +1295,12 @@ async function sendResultsByEmail(userName, userAge, userPhone, resultsData) {
         );
 
         console.log('Email отправлен успешно!', response.status, response.text);
-        showToast(`Отлично! В ближайшее время консультант свяжется с вами`, "web");
+        showToast(`✨ Результаты отправлены! Консультант свяжется с вами`, "web");
+        state.emailSent = true;
         
     } catch (error) {
         console.error('Ошибка отправки email:', error);
-        let errorMessage = "Не удалось отправить результаты.";
+        let errorMessage = "⚠️ Не удалось отправить результаты.";
         if (error.text) {
             try {
                 const errorData = JSON.parse(error.text);
@@ -1211,15 +1316,6 @@ async function sendResultsByEmail(userName, userAge, userPhone, resultsData) {
 }
 
 /* =========================================
-   VALIDATE PHONE
-========================================= */
-
-function isValidPhone(phone) {
-    const phoneRegex = /^[\+\d\s\-\(\)]{7,20}$/;
-    return phoneRegex.test(phone);
-}
-
-/* =========================================
    RESET TEST
 ========================================= */
 
@@ -1228,10 +1324,18 @@ function resetTest() {
     state.answers = Array(questions.length).fill(null);
     state.scores = Object.fromEntries(profileOrder.map(key => [key, 0]));
     state.profile = Object.fromEntries(profileOrder.map(key => [key, 0]));
+    state.emailSent = false;
     
     document.getElementById("studentName").value = "";
     document.getElementById("studentAge").value = "";
     document.getElementById("studentPhone").value = "";
+    document.getElementById("studentEmail").value = "";
+    document.getElementById("parentPhoneCheck").checked = false;
+    document.getElementById("termsCheck").checked = false;
+    
+    // Убираем ошибки
+    document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+    document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
     
     renderProfile();
     switchScreen(startScreen);
@@ -1243,17 +1347,10 @@ function resetTest() {
 ========================================= */
 
 document.getElementById("startBtn").addEventListener("click", () => {
-    const name = document.getElementById("studentName").value.trim();
-    const phone = document.getElementById("studentPhone").value.trim();
-    
-    if (!name) {
-        const nameInput = document.getElementById("studentName");
-        nameInput.focus();
-        nameInput.style.borderColor = "var(--danger)";
-        setTimeout(() => { nameInput.style.borderColor = ""; }, 800);
+    if (!validateForm()) {
+        showToast("⚠️ Проверьте правильность заполнения формы", "web");
         return;
     }
-    
     
     // Показываем панель профиля только после старта теста
     profilePanel.style.display = "block";
@@ -1267,15 +1364,25 @@ document.getElementById("startBtn").addEventListener("click", () => {
    NEXT BUTTON
 ========================================= */
 
-nextBtn.addEventListener("click", () => {
+nextBtn.addEventListener("click", async () => {
     if (!hasAnswer()) {
         showToast("Выбери ответ, чтобы продолжить", "web");
         return;
     }
     
     if (state.current === questions.length - 1) {
+        // Получаем данные формы
+        const formData = getFormData();
+        
+        // Отображаем результаты
         renderResults();
         switchScreen(resultsScreen);
+        
+        // Автоматически отправляем результаты по email (только один раз)
+        if (!state.emailSent) {
+            const results = calculateResults();
+            await sendResultsByEmail(formData, results);
+        }
         return;
     }
     
@@ -1294,38 +1401,38 @@ backBtn.addEventListener("click", () => {
 });
 
 /* =========================================
-   SEND PHONE BUTTON
-========================================= */
-
-document.getElementById('sendPhoneBtn').addEventListener('click', async () => {
-    const userName = document.getElementById('studentName').value.trim() || 'Пользователь';
-    const userAge = document.getElementById('studentAge').value || '';
-    const userPhone = document.getElementById('studentPhone').value.trim();
-    
-    
-    const results = calculateResults();
-    showToast("Отправка результатов...", "web");
-    await sendResultsByEmail(userName, userAge, userPhone, results);
-});
-
-/* =========================================
    RESTART
 ========================================= */
 
 document.getElementById("restartBtn").addEventListener("click", resetTest);
 
 /* =========================================
-   PRINT
-========================================= */
-
-document.getElementById("printBtn").addEventListener("click", () => {
-    window.print();
-});
-
-/* =========================================
-   INITIAL RENDER
+   ИНИЦИАЛИЗАЦИЯ
 ========================================= */
 
 // Скрываем панель профиля при загрузке страницы
 profilePanel.style.display = "none";
 renderProfile();
+
+// Убираем ошибки при вводе
+document.getElementById('studentPhone').addEventListener('input', function() {
+    this.classList.remove('error');
+    document.getElementById('phoneError').classList.remove('show');
+});
+
+document.getElementById('studentEmail').addEventListener('input', function() {
+    this.classList.remove('error');
+    document.getElementById('emailError').classList.remove('show');
+});
+
+document.getElementById('termsCheck').addEventListener('change', function() {
+    this.classList.remove('error');
+});
+
+document.getElementById('studentName').addEventListener('input', function() {
+    this.classList.remove('error');
+});
+
+document.getElementById('studentAge').addEventListener('input', function() {
+    this.classList.remove('error');
+});
