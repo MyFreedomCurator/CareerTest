@@ -497,19 +497,14 @@ h3 {
 
 
 /* ========================================= */
-/* PROFILE FORM                              */
-/* ================================= */
+/* PROFILE FORM — ВЕРТИКАЛЬНОЕ РАСПОЛОЖЕНИЕ  */
+/* ========================================= */
 
 .profile-form {
 
-    display: grid;
-
-    grid-template-columns:
-        1.4fr
-        0.7fr
-        0.7fr;
-
-    gap: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 
     margin:
         30px
@@ -518,6 +513,8 @@ h3 {
 
     text-align:
         left;
+    
+    max-width: 560px;
 }
 
 
@@ -527,7 +524,7 @@ h3 {
 
     flex-direction: column;
 
-    gap: 8px;
+    gap: 6px;
 }
 
 
@@ -541,6 +538,12 @@ h3 {
 
     font-weight:
         650;
+}
+
+
+.field .required {
+    color: var(--danger);
+    font-weight: 700;
 }
 
 
@@ -582,6 +585,70 @@ h3 {
     box-shadow:
         0 0 0 4px
         rgba(7,162,226,.12);
+}
+
+
+/* ========================================= */
+/* ЧЕКБОКСЫ                                  */
+/* ========================================= */
+
+.checkbox-field {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 4px 0;
+}
+
+.checkbox-field .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 400;
+    
+    cursor: pointer;
+    
+    line-height: 1.4;
+}
+
+.checkbox-field .checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    
+    flex-shrink: 0;
+    
+    accent-color: var(--accent);
+    cursor: pointer;
+    
+    border-radius: 4px;
+    border: 2px solid var(--line);
+    background: rgba(255,255,255,0.04);
+    
+    transition: 0.2s ease;
+}
+
+.checkbox-field .checkbox-label input[type="checkbox"]:checked {
+    border-color: var(--accent);
+    background: var(--accent);
+}
+
+.checkbox-field .checkbox-label .terms-link {
+    color: var(--accent);
+    text-decoration: underline;
+    transition: 0.2s ease;
+}
+
+.checkbox-field .checkbox-label .terms-link:hover {
+    color: var(--accent-2);
+    opacity: 0.8;
+}
+
+.checkbox-field .checkbox-label .required {
+    color: var(--danger);
+    font-weight: 700;
+    margin-left: 2px;
 }
 
 
@@ -649,6 +716,14 @@ h3 {
         0 18px
         32px
         rgba(7,162,226,.34);
+}
+
+
+.primary-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 
@@ -1690,6 +1765,31 @@ span:last-child {
 }
 
 /* ========================================= */
+/* ВАЛИДАЦИЯ ПОЛЕЙ ФОРМЫ                     */
+/* ========================================= */
+
+.field input.error {
+    border-color: var(--danger) !important;
+    box-shadow: 0 0 0 4px rgba(255, 161, 107, 0.15) !important;
+}
+
+.field .error-message {
+    font-size: 12px;
+    color: var(--danger);
+    margin-top: 4px;
+    display: none;
+}
+
+.field .error-message.show {
+    display: block;
+}
+
+.checkbox-field .checkbox-label input[type="checkbox"].error {
+    border-color: var(--danger) !important;
+    box-shadow: 0 0 0 4px rgba(255, 161, 107, 0.15) !important;
+}
+
+/* ========================================= */
 /* MOBILE                                    */
 /* ========================================= */
 
@@ -1772,8 +1872,7 @@ span:last-child {
 
     .profile-form {
 
-        grid-template-columns:
-            1fr;
+        max-width: 100%;
     }
 
 
@@ -1845,6 +1944,10 @@ span:last-child {
     
     .result-actions button {
         width: 100%;
+    }
+
+    .checkbox-field .checkbox-label {
+        font-size: 13px;
     }
 
 }
