@@ -112,6 +112,7 @@
                                     autocomplete="tel"
                                     required
                                 >
+                                <div class="error-message" id="phoneError">Введите номер в формате +375XXXXXXXXX</div>
                             </div>
 
                             <div class="field checkbox-field">
@@ -129,12 +130,13 @@
                                     placeholder="example@mail.com"
                                     autocomplete="email"
                                 >
+                                <div class="error-message" id="emailError">Введите корректный email (минимум 7 символов, содержит @)</div>
                             </div>
 
                             <div class="field checkbox-field">
                                 <label class="checkbox-label">
                                     <input type="checkbox" id="termsCheck" required>
-                                    Я принимаю условия <a href="#" class="terms-link">соглашения</a> <span class="required">*</span>
+                                    Я принимаю условия <a href="https://myfreedom.by/confidentiality" class="terms-link" target="_blank">политики конфиденциальности</a> <span class="required">*</span>
                                 </label>
                             </div>
 
@@ -257,16 +259,6 @@
                         id="restartBtn"
                     >
                         Пройти заново
-                    </button>
-
-
-
-                    <button
-                        class="ghost-btn"
-                        id="sendPhoneBtn"
-                        style="border-color: #39d98a; color: #39d98a;"
-                    >
-                        📱 Отправить консультантам
                     </button>
 
                 </div>
